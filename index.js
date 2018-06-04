@@ -29,9 +29,8 @@ export default class AutoTags extends Component {
             <TouchableHighlight
               key={i}
               style={[tagMargins, styles.tag]}
-              onPress={() => this.props.handleDelete(i)}
-            >
-              <Text>{t.name}</Text>
+              onPress={() => this.props.handleDelete(i)}>
+              <Text style={{color: '#2895FF'}}>#{t.name}</Text>
             </TouchableHighlight>
           );
         })}
@@ -94,7 +93,7 @@ export default class AutoTags extends Component {
               {this.props.renderSuggestion ? (
                 this.props.renderSuggestion(suggestion)
               ) : (
-                <Text>{suggestion.name}</Text>
+                <Text>#{suggestion.name}</Text>
               )}
             </TouchableOpacity>
           )}
@@ -103,10 +102,12 @@ export default class AutoTags extends Component {
           }
           containerStyle={this.props.containerStyle || styles.containerStyle}
           underlineColorAndroid="transparent"
-          style={{ backgroundColor: "#efeaea" }}
+          style={{ backgroundColor: "#2895FF",
+                  color: '#FFFFFF', borderColor: '#FFFFFF',
+                  borderBottomWidth: 2, fontSize: 18 }}
           listContainerStyle={{
             backgroundColor: this.props.tagsOrientedBelow
-              ? "#efeaea"
+              ? "rgb(244, 244, 244)"
               : "transparent"
           }}
           {...this.props}
