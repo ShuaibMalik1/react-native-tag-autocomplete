@@ -88,6 +88,7 @@ export default class AutoTags extends Component {
           onChangeText={text => this.handleInput(text)}
           multiline={true}
           autoFocus={this.props.autoFocus === false ? false : true}
+          selectionColor={'black'}
           renderItem={suggestion => (
             <TouchableOpacity onPress={e => this.addTag(suggestion)}>
               {this.props.renderSuggestion ? (
@@ -102,16 +103,15 @@ export default class AutoTags extends Component {
           }
           containerStyle={this.props.containerStyle || styles.containerStyle}
           underlineColorAndroid="transparent"
-          style={{ backgroundColor: "#2895FF",
+          style={{backgroundColor: "#2895FF",
                   color: '#FFFFFF', borderColor: '#FFFFFF',
-                  borderBottomWidth: 2, fontSize: 18 }}
+                  borderBottomWidth: 2, fontSize: 18, marginBottom: 5}}
           listContainerStyle={{
             backgroundColor: this.props.tagsOrientedBelow
               ? "rgb(244, 244, 244)"
               : "transparent"
           }}
-          {...this.props}
-        />
+          {...this.props}/>
         {this.props.tagsOrientedBelow &&
           this.props.tagsSelected &&
           this.renderTags()}
